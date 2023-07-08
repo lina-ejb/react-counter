@@ -1,0 +1,114 @@
+html, body {
+    background-color: #222222;
+}
+.counterContainer {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+
+}
+
+.mainCounterContainer {
+    width: 390px;
+    height: 230px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20% auto;
+    background-color: #222222;
+    border-radius: 8px;
+    padding: 3rem;
+    border: 2px solid rgb(0, 216, 255);
+    gap: 20px;
+
+}
+.counter  {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    border: 2px solid rgb(0, 216, 255);
+    border-radius: 8px;
+    padding: 25px;
+}
+
+
+.limitedCounterValue {
+    font-size: 40px;
+    color: red;
+    font-weight: bold;
+}
+.outputCounterValue {
+    font-size: 40px;
+    color: #00d8ff;
+    font-weight: bold;
+}
+.buttonContainer {
+    width: inherit;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid rgb(0, 216, 255);
+    border-radius: 8px;
+    padding: 25px;
+
+}
+.button {
+    padding: 10px 30px;
+    font-size: 25px;
+    background-color: #00d8ff;
+    color: #222222;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+
+}
+
+.button:active {
+    color: #00d8ff;
+    background-color: #222222;
+}
+.disabledButton {
+    padding: 10px 30px;
+    font-size: 25px;
+    background-color: #3d6d7f;
+    color: #222222;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+}
+.settingValue {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 20px;
+    color: #00d8ff;
+    font-weight: bold;
+    border: 2px solid rgb(0, 216, 255);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+
+.errorInput {
+    background-color: #fce4e4;
+    border: 2px solid red;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+    outline: none;
+    border-radius: 5px;
+
+}
+input {
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    outline: none;
+    border: 2px solid #00d8ff;
+    border-radius: 5px;
+    padding: 5px;
+
+}
