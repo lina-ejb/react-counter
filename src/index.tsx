@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import reportWebVitals from './reportWebVitals';
-
-import {MainCounter} from "./MainCounter";
+import {MainCounterWithReducer} from "./MainCounterWithRedux";
+import {Provider} from "react-redux";
+import {store} from "./state/store";
+import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <MainCounter />
-  </React.StrictMode>
+    <Provider store={store}>
+        <MainCounterWithReducer/>
+    </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

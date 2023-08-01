@@ -1,24 +1,17 @@
 import React from 'react';
 
-type ButtonPropsType = {
+type ButtonPropsType = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
     name: string
-    onClick?: () => void
-    disabled?: boolean
-    className: string
 }
 
 export const Button: React.FC<ButtonPropsType> = ({
                                                       name,
-                                                      onClick,
-                                                      disabled,
-                                                      className
+                                                      ...rest
                                                   }) => {
     return (
         <div >
             <button
-                onClick={onClick}
-                disabled={disabled}
-                className={className}
+                {...rest}
             >
                 {name}
             </button>

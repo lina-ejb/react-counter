@@ -3,32 +3,39 @@ import '../App.css';
 import {Counter} from "./Counter/Counter";
 import s from './Counter.module.css'
 import {Button} from "./Button/Button";
-
-type CounterContainerPropsType = {
-    count: number
-    addCounter: () => void
-    resetCounter: () => void
-    maxValue: number
-    toggleShow: () => void
-}
-
-export const CounterContainer: React.FC<CounterContainerPropsType> = ({
-                                                                          count,
-                                                                          addCounter,
-                                                                          resetCounter,
-                                                                          maxValue,
-                                                                          toggleShow,
-                                                                      }) => {
+import {useDispatch, useSelector} from "react-redux";
+import {StateType} from "../state/store";
+import {incActionCreator, resActionCreator, StateMainType, toggleCounterAC} from "../state/count-reducer";
 
 
-    const isMaxValueCount = count === maxValue
+export const CounterContainer = () => {
+
+    const addCounter = () => {
+        if (count.startValue < count.maxValue) {
+            dispatch(incActionCreator())
+        }
+    }
+
+    const resetCounter = () => {
+        dispatch(resActionCreator())
+    }
+
+    const dispatch = useDispatch()
+    const count = useSelector<StateType, StateMainType>((state) => state.counter)
+
+    const toggleShow = () => {
+        dispatch(toggleCounterAC())
+    }
+
+    const isMaxValueCount = count.count === count.maxValue
     const buttonStyle = isMaxValueCount ? s.disabledButton : s.button
     const counterStyle = isMaxValueCount ? s.limitedCounterValue : s.outputCounterValue
 
 
     return <div className={s.counterContainer}>
         <Counter
-            count={count}
+
+            count={count.count}
             className={counterStyle}
         />
 
@@ -44,11 +51,13 @@ export const CounterContainer: React.FC<CounterContainerPropsType> = ({
                 name={'reset'}
                 onClick={resetCounter}
                 className={s.button}
+
             />
             <Button
                 name={'set'}
                 className={s.button}
                 onClick={toggleShow}
+
             />
         </div>
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import {MainCounter} from "./MainCounter";
+import {MainCounterWithReducer} from "./MainCounterWithRedux";
+
 
 test('renders learn react link', () => {
-  render(<MainCounter />);
+  render(<MainCounterWithReducer />);
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });

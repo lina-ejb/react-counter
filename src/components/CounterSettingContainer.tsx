@@ -2,42 +2,32 @@ import React, {ChangeEvent} from 'react';
 import {Button} from "./Button/Button";
 import s from "./Counter.module.css";
 import {SuperInput} from "./SuperInput/SuperInput";
+import {useDispatch, useSelector} from "react-redux";
+import {StateType} from "../state/store";
+import {changeMaxValueAC, changeStartValueAC, StateMainType, toggleCounterAC} from "../state/count-reducer";
+import {counterSelector} from "../selector/counterSelector";
 
 
-type CounterSettingContainerPropsType = {
-    maxValue: number
-    startValue: number
-    count: number
-    setMaxValue: (e: number) => void
-    setStartValue: (e: number) => void
-    toggleShow: () => void
+export const CounterSettingContainer = () => {
 
-}
+    const dispatch = useDispatch()
+    const count = useSelector<StateType, StateMainType>(counterSelector)
 
-export const CounterSettingContainer: React.FC<CounterSettingContainerPropsType> = ({
-                                                                                        maxValue,
-                                                                                        startValue,
-                                                                                        count,
-                                                                                        setMaxValue,
-                                                                                        setStartValue,
-                                                                                        toggleShow,
-
-                                                                                    }) => {
     const maxOnChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        if (setMaxValue) setMaxValue(Number(e.currentTarget.value))
-
+        dispatch(changeMaxValueAC(Number(e.currentTarget.value)))
     }
+
     const startOnChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        if (setStartValue) setStartValue(Number(e.currentTarget.value))
+        dispatch(changeStartValueAC(Number(e.currentTarget.value)))
     }
 
     const valueToCounterHandler = () => {
-        toggleShow()
+        dispatch(toggleCounterAC())
     }
 
     const disabledButton = false
-    const isIncorrectValue = startValue >= maxValue
-    const isIncorrectInputValue = startValue < 0 || isIncorrectValue
+    const isIncorrectValue = count.startValue >= count.maxValue
+    const isIncorrectInputValue = count.startValue < 0 || isIncorrectValue
     const inputClassName = isIncorrectValue ? s.errorInput : s.input
     const startInputCLassName = isIncorrectInputValue ? s.errorInput : s.input
     const buttonSettingClassName = disabledButton || isIncorrectInputValue ? s.disabledButton : s.button
@@ -52,10 +42,8 @@ export const CounterSettingContainer: React.FC<CounterSettingContainerPropsType>
                 <SuperInput
                     id={'maxValue'}
                     onChange={maxOnChangeCallback}
-                    value={maxValue.toString()}
-                    count={count}
+                    value={count.maxValue}
                     className={inputClassName}
-
                 />
 
                 <label
@@ -64,7 +52,7 @@ export const CounterSettingContainer: React.FC<CounterSettingContainerPropsType>
                 </label>
                 <SuperInput
                     id={'startValue'}
-                    value={startValue.toString()}
+                    value={count.startValue}
                     onChange={startOnChangeCallback}
                     className={startInputCLassName}
 
