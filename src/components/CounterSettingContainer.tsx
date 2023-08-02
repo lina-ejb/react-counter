@@ -42,7 +42,7 @@ export const CounterSettingContainer = () => {
                 <SuperInput
                     id={'maxValue'}
                     onChange={maxOnChangeCallback}
-                    value={count.maxValue}
+                    value={count.maxValue.toString()}
                     className={inputClassName}
                 />
 
@@ -52,7 +52,7 @@ export const CounterSettingContainer = () => {
                 </label>
                 <SuperInput
                     id={'startValue'}
-                    value={count.startValue}
+                    value={count.startValue.toString()}
                     onChange={startOnChangeCallback}
                     className={startInputCLassName}
 

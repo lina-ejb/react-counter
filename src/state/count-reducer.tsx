@@ -5,7 +5,7 @@ export type StateMainType = {
     isShown: boolean
 }
 
-const initialCount = {
+export const initialCount: StateMainType = {
     count: 0,
     startValue: 0,
     maxValue: 5,

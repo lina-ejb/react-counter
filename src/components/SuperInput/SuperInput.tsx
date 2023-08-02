@@ -2,7 +2,7 @@ import React from 'react';
 import s from '../Counter.module.css'
 
 type SuperInputPropsType = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
-    value: number
+    value: string
 }
 
 export const SuperInput: React.FC<SuperInputPropsType> = ({
