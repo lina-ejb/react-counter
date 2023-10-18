@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
 
 export const store = legacy_createStore(rootReducer, persistedState)
 
-export type StateType = ReturnType<typeof rootReducer>
+export type StateAppType = ReturnType<typeof rootReducer>
 
 store.subscribe(() => {
     saveState(

@@ -4,7 +4,7 @@ import {Counter} from "./Counter/Counter";
 import s from './Counter.module.css'
 import {Button} from "./Button/Button";
 import {useDispatch, useSelector} from "react-redux";
-import {StateType} from "../state/store";
+import {StateAppType} from "../state/store";
 import {incActionCreator, resActionCreator, StateMainType, toggleCounterAC} from "../state/count-reducer";
 
 
@@ -21,7 +21,7 @@ export const CounterContainer = () => {
     }
 
     const dispatch = useDispatch()
-    const count = useSelector<StateType, StateMainType>((state) => state.counter)
+    const count = useSelector<StateAppType, StateMainType>((state) => state.counter)
 
     const toggleShow = () => {
         dispatch(toggleCounterAC())

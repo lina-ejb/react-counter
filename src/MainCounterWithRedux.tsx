@@ -4,12 +4,12 @@ import s from './components/Counter.module.css'
 import {CounterSettingContainer} from "./components/CounterSettingContainer";
 import {StateMainType} from "./state/count-reducer";
 import {useSelector} from "react-redux";
-import {StateType} from "./state/store";
+import {StateAppType} from "./state/store";
 import {counterSelector} from "./selector/counterSelector";
 
 export const MainCounterWithReducer = () => {
 
-    const count = useSelector<StateType, StateMainType>(counterSelector)
+    const count = useSelector<StateAppType, StateMainType>(counterSelector)
 
     return (
         <div className={s.mainCounterContainer}>

@@ -1,5 +1,5 @@
-import {StateType} from "../state/store";
+import {StateAppType} from "../state/store";
 import {StateMainType} from "../state/count-reducer";
 
 
-export const counterSelector = (state: StateType): StateMainType => state.counter
+export const counterSelector = (state: StateAppType): StateMainType => state.counter

@@ -3,7 +3,7 @@ import {Button} from "./Button/Button";
 import s from "./Counter.module.css";
 import {SuperInput} from "./SuperInput/SuperInput";
 import {useDispatch, useSelector} from "react-redux";
-import {StateType} from "../state/store";
+import {StateAppType} from "../state/store";
 import {changeMaxValueAC, changeStartValueAC, StateMainType, toggleCounterAC} from "../state/count-reducer";
 import {counterSelector} from "../selector/counterSelector";
 
@@ -11,7 +11,7 @@ import {counterSelector} from "../selector/counterSelector";
 export const CounterSettingContainer = () => {
 
     const dispatch = useDispatch()
-    const count = useSelector<StateType, StateMainType>(counterSelector)
+    const count = useSelector<StateAppType, StateMainType>(counterSelector)
 
     const maxOnChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
         dispatch(changeMaxValueAC(Number(e.currentTarget.value)))

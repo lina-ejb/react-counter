@@ -5,7 +5,6 @@ import {MainCounterWithReducer} from "./MainCounterWithRedux";
 import {Provider} from "react-redux";
 import {store} from "./state/store";
 import reportWebVitals from "./reportWebVitals";
-import {loadState} from "./localStorage";
 
 
 const root = ReactDOM.createRoot(
